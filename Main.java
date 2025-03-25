@@ -14,6 +14,54 @@ public class Main {
         mostrarEstadisticas(array);
     }
 
+    public static void programaFigura(){
+        int opcion;
+
+        do{
+            System.out.println("1. Crea un ArrayList figuras");
+            System.out.println("2. Añadir figuras de diferentes tipos");
+            System.out.println("3. Mostrar la información de todas las figuras del ArrayList");
+            System.out.println("4. Escalar todas las figuras según un valor introducido");
+            System.out.println("5. Mostrar la información de una figura seleccionada");
+            System.out.println("6. Mostrar el área de una figura seleccionada");
+            System.out.println("7. Mostrar el perímetro de una figura seleccionada");
+            System.out.println("0. SALIR");
+
+            opcion = Leer.leerEntero("\nIntroduzca una opción: ");
+
+            switch (opcion){
+                case 0:
+                    System.out.println("Saliendo del programa...");
+                    break;
+
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                case 7:
+                    break;
+
+                default:
+                    System.out.println("\nERROR: Valor introducido no válido");
+                    break;
+            }
+        } while (opcion != 0);
+    }
+
     public static void mostrarEstadisticas(Estadisticas obj){
         System.out.println("Mínimo: " + obj.minimo());
         System.out.println("Máximo: " + obj.maximo());
@@ -24,6 +72,21 @@ public class Main {
     }
 
     public static void main(String[] args){
-        pruebaEstadistica();
+        String opcion;
+
+        do {
+            System.out.println("E - Estadística");
+            System.out.println("F - Figura");
+            System.out.println("S - SALIR");
+
+            opcion = Leer.leerTexto("Introduce la opción que desea ejecutar: ").toUpperCase();
+
+            if (opcion.equals("E")){
+                pruebaEstadistica();
+            } else {
+                programaFigura();
+            }
+
+        } while (!opcion.equals("S"));
     }
 }
