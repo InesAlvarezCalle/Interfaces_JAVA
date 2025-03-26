@@ -10,35 +10,47 @@ public class ArrayDoubleEstadistica implements Estadisticas{
     }
 
     public void agregar(double valor){
-        if(cuantos < tope){
-            datos[cuantos++] = valor;
+        if(datos.length == 0){
+            if(cuantos < tope){
+                datos[cuantos++] = valor;
+            } else {
+                System.out.println("\nARRAY LLENO: no se pueden agregar más datos");
+            }
         } else {
-            System.out.println("\nARRAY LLENO: no se pueden agregar más datos");
+            System.out.println("Array no iniciado");
         }
     }
 
     @Override
     public double minimo(){
-        double min = datos[0];
+        if(datos.length == 0) {
+            double min = datos[0];
 
-        for (int i = 1; i < cuantos; i++) {
-            if(datos[i] < min){
-                min = datos[i];
+            for (int i = 1; i < cuantos; i++) {
+                if (datos[i] < min) {
+                    min = datos[i];
+                }
             }
+            return min;
+        } else {
+            return 9999;
         }
-        return min;
     }
 
     @Override
     public double maximo(){
-        double max = datos[0];
+        if(datos.length == 0) {
+            double max = datos[0];
 
-        for (int i = 1; i < cuantos; i++) {
-            if(datos[i] > max){
-                max = datos[i];
+            for (int i = 1; i < cuantos; i++) {
+                if (datos[i] > max) {
+                    max = datos[i];
+                }
             }
+            return max;
+        } else {
+            return 0;
         }
-        return max;
     }
 
     @Override
@@ -48,26 +60,38 @@ public class ArrayDoubleEstadistica implements Estadisticas{
 
     @Override
     public double suma(){
-        double sum = 0;
+        if(datos.length == 0) {
+            double sum = 0;
 
-        for (int i = 0; i < cuantos; i++) {
-            sum += datos[i];
+            for (int i = 0; i < cuantos; i++) {
+                sum += datos[i];
+            }
+            return sum;
+        } else {
+            return 0;
         }
-        return sum;
     }
 
     @Override
     public double resta(){
-        double res = datos[0];
+        if(datos.length == 0) {
+            double res = datos[0];
 
-        for (int i = 1; i < cuantos; i++) {
-            res -= datos[i];
+            for (int i = 1; i < cuantos; i++) {
+                res -= datos[i];
+            }
+            return res;
+        } else {
+            return 0;
         }
-        return res;
     }
 
     @Override
     public int cuantos(){
-        return cuantos;
+        if(datos.length == 0) {
+            return cuantos;
+        } else {
+            return 0;
+        }
     }
 }

@@ -13,26 +13,33 @@ public class ArrayListDoubleEstadistica implements Estadisticas{
 
     @Override
     public double minimo(){
-        double min = datos.get(0);
-
-        for (double num : datos){
-            if(num < min){
-                min = num;
+        if(!datos.isEmpty()){
+            double min = datos.get(0);
+            for (double num : datos){
+                if(num < min){
+                    min = num;
+                }
             }
+            return min;
+        }else{
+            return 9999;
         }
-        return min;
     }
 
     @Override
     public double maximo(){
-        double max = datos.get(0);
+        if (!datos.isEmpty()){
+            double max = datos.get(0);
 
-        for (double num : datos){
-            if(num > max){
-                max = num;
+            for (double num : datos){
+                if(num > max){
+                    max = num;
+                }
             }
+            return max;
+        } else {
+            return 0;
         }
-        return max;
     }
 
      @Override
@@ -42,24 +49,36 @@ public class ArrayListDoubleEstadistica implements Estadisticas{
 
     @Override
     public double suma(){
-        double sum = 0;
-        for (double num : datos){
-            sum += num;
+        if(!datos.isEmpty()){
+            double sum = 0;
+            for (double num : datos){
+                sum += num;
+            }
+            return sum;
+        } else {
+            return 0;
         }
-        return sum;
     }
 
     @Override
     public double resta(){
-        double res = datos.get(0);
-        for (int i = 1; i < datos.size(); i++) {
-            res -= datos.get(i);
+        if (!datos.isEmpty()){
+            double res = datos.get(0);
+            for (int i = 1; i < datos.size(); i++) {
+                res -= datos.get(i);
+            }
+            return res;
+        } else {
+            return 0;
         }
-        return res;
     }
 
     @Override
     public int cuantos(){
-        return datos.size();
+        if(!datos.isEmpty()){
+            return datos.size();
+        } else {
+            return 0;
+        }
     }
 }
