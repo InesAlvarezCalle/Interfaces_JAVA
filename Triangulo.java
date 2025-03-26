@@ -1,6 +1,11 @@
 public class Triangulo implements iFigura2D{
     private double base, altura;
 
+    public Triangulo(double ba, double al){
+        this.base = ba;
+        this.altura = al;
+    }
+
     @Override
     public double perimetro(){
         double h;
@@ -17,5 +22,9 @@ public class Triangulo implements iFigura2D{
     public void escalar(double escala){
         base += altura;
         altura *= base;
+    }
+
+    public String toString(){
+        return "\nTriángulo: \nBase: " + this.base + "\nAltura: " + this.altura;
     }
 }
